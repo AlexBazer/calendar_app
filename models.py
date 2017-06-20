@@ -1,3 +1,5 @@
+import json
+
 class EventList(object):
     def __init__(self, db_events):
         self.events = {key: Event(value) for key, value in db_events.items()}
@@ -7,6 +9,9 @@ class EventList(object):
 
     def list(self):
         return '\n'.join('{}: {}'.format(key, str(value)) for key, value in self.events.items())
+
+    def get(self, pk):
+        return self.events.get(pk)
 
 
 class Event(object):
@@ -23,3 +28,18 @@ class Event(object):
 
     def __str__(self):
         return '{} at {}'.format(self.title, self.dtime.isoformat())
+
+
+class ResourceList(object):
+    def __init__(self, resource_list_db):
+        self.data = resource_list_db
+
+    def list(self):
+        return '\n'.join(json.dumps(item, separators=(', \n', ': ')) for item in self.data)
+
+    def add(self, resouce):
+        self.data.append(Resource(resouce))
+
+
+class Resource(dict):
+    pass
