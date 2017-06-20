@@ -66,5 +66,7 @@ def subscribe_for_events(self, request):
     return str(result)
 
 
+app = App()
+
 if __name__ == '__main__':
-    morepath.run(App())
+    morepath.run(app)
