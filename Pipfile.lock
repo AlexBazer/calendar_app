@@ -1,0 +1,38 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "4be701d972905d7d481dab7355e854bc3423e5e7f5b5792976b16f69185da31f"
+        },
+        "requires": {},
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "dectate": {
+            "version": "==0.13"
+        },
+        "importscan": {
+            "version": "==0.1"
+        },
+        "morepath": {
+            "version": "==0.18"
+        },
+        "reg": {
+            "version": "==0.11"
+        },
+        "repoze.lru": {
+            "version": "==0.6"
+        },
+        "setuptools": {
+            "version": "==36.0.1"
+        },
+        "webob": {
+            "version": "==1.7.2"
+        }
+    },
+    "develop": {}
+}
