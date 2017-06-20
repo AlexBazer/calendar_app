@@ -43,3 +43,7 @@ class ResourceList(object):
 
 class Resource(dict):
     pass
+
+
+class Subscibe(object):
+    pass

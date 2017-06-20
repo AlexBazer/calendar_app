@@ -7,3 +7,5 @@ pudb = "*"
 
 [packages]
 morepath = "*"
+google-api-python-client = "*"
+oauth2client = "*"

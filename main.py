@@ -1,5 +1,6 @@
 import morepath
-from models import EventList, Event, ResourceList, Resource
+import gcalendar
+from models import EventList, Event, ResourceList, Resource, Subscibe
 from db import event_list, resouce_list
 
 
@@ -32,6 +33,11 @@ def get_list_resources():
     return ResourceList(resouce_list)
 
 
+@App.path(model=Subscibe, path='subscribe/events')
+def get_subscribe_events():
+    return Subscibe()
+
+
 @App.view(model=EventList)
 def list_events(self, request):
     return self.list()
@@ -51,6 +57,13 @@ def list_resources(self, request):
 def create_resource(self, request):
     self.add(request.headers)
     return "OK"
+
+
+@App.html(model=Subscibe, request_method='POST')
+def subscribe_for_events(self, request):
+    api = gcalendar.get_api('keyfile.json')
+    result = gcalendar.subscribe_for_events(api, 'resources/')
+    return str(result)
 
 
 if __name__ == '__main__':
